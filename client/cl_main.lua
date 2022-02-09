@@ -765,7 +765,3 @@ function PublicRecordsThread()
         end
     end)
 end
-
-RegisterNetEvent('qb-mdt:client:PublicRecords' , function()
-    OpenPublicRecords()
-end)
