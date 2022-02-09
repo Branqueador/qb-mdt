@@ -16,3 +16,25 @@ This MDT is work in progress and features may not work properly.
 # Credit
 
 Original Repo: https://github.com/FlawwsX/erp_mdt
+
+#
+## QBCore Changes for License
+#
+- qb-core/server/player.lua
+- replace the old logic of licenses to this new logic
+- search for ```PlayerData.metadata["licences"]``` and replace the whole block of licences with the block below
+
+```lua
+if PlayerData.metadata["licences"]["drive_truck"] ~= nil then
+    PlayerData.metadata['licences'] = PlayerData.metadata['licences']
+else
+    PlayerData.metadata['licences'] = {
+        ['driver'] = true,
+        ['business'] = false,
+        ['weapon'] = false,
+        ["drive_bike"] = false,
+        ["drive_truck"] = false,
+        ["pilot"] = false,
+    }
+end
+```
