@@ -306,6 +306,7 @@ LoadQBCoreVersion = function()
         ReturnData.lastname = CharInfo.lastname
         ReturnData.phone = CharInfo.phone
         ReturnData.cid = result[1].citizenid
+        ReturnData.fingerprint = GetPlayerFingerprint(result[1].citizenid)
         ReturnData.dateofbirth = CharInfo.birthdate
         ReturnData.job = json.decode(result[1].job).label
         ReturnData.profilepic = GetPlayerProfilePicture(result[1].citizenid)

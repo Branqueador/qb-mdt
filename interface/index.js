@@ -2918,6 +2918,7 @@ $(document).ready(() => {
 
             $(".manage-profile-editing-title").html("You are currently editing " + table["firstname"] + " " + table["lastname"])
             $(".manage-profile-citizenid-input").val(table["cid"]);
+            $(".manage-profile-fingerprint-input").val(table["fingerprint"]);
             $(".manage-profile-name-input-1").val(table["firstname"])
             $(".manage-profile-name-input-2").val(table["lastname"])
             $(".manage-profile-dob-input").val(table["dateofbirth"]);

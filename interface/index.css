@@ -1105,6 +1105,16 @@ a {
     background-color: rgba(0, 0, 0, 0);
 }
 
+.manage-profile-fingerprint-input {
+    border: none;
+    outline: none;
+    margin-left: 2.5px;
+    font-size: 16px;
+    margin-top: 2px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0);
+}
+
 .manage-cid-pic {
     color: white;
     font-size: 16px;
