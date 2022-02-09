@@ -4121,6 +4121,7 @@ $(document).ready(() => {
 
             const lspd = e.lspd
             const sast = e.sast
+            const bcso = e.bcso
             const ems = e.ems
 
             $(".active-unit-list").empty();
