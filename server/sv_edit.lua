@@ -18,6 +18,27 @@ GetPlayerLicenses = function(identifier, type)
     end
 end
 
+-- ######################################################### --
+-- ### This Function Will Get All The Player Finerprints ### -- 
+-- ######################################################### --
+
+GetPlayerFingerprint = function(identifier)
+    local response = false
+    local Player = QBCore.Functions.GetPlayerByCitizenId(identifier)
+    if Player ~= nil then
+        return Player.PlayerData.metadata.fingerprint
+    else
+        local result = SQL('SELECT * FROM players WHERE citizenid = @identifier', {['@identifier'] = identifier})
+        if result[1] ~= nil then
+            local metadata = json.decode(result[1].metadata)
+            local fingerprint = metadata["fingerprint"]
+            if fingerprint ~= nil and fingerprint then
+                return fingerprint
+            end
+        end
+    end
+end
+
 -- #################################################
 -- ### This Function Will Get Player Duty Status ###
 -- #################################################

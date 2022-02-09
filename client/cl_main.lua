@@ -392,8 +392,10 @@ LoadQBCoreVersion = function()
         if enable then 
             SendNUIMessage({type = "bulletin", data = RPC.execute("qb-mdt:dashboardbulletin")})
             SendNUIMessage({type = "dispatchmessages", data = RPC.execute("qb-mdt:dashboardMessages")})
-            SendNUIMessage({type = "getActiveUnits", lspd = RPC.execute("qb-mdt:getActiveLSPD"), ems = RPC.execute("qb-mdt:getActiveEMS")})
+            SendNUIMessage({type = "getActiveUnits", lspd = RPC.execute("qb-mdt:getActiveLSPD"), sast = RPC.execute("qb-mdt:getActiveSAST"), bcso = RPC.execute("qb-mdt:getActiveBCSO"), ems = RPC.execute("qb-mdt:getActiveEMS")})
             SendNUIMessage({type = "UpdatePoliceRoster", data = Config["PoliceRosterLink"]})
+            SendNUIMessage({type = "UpdateSASTRoster", data = Config["SASTRosterLink"]})
+            SendNUIMessage({type = "UpdateBCSORoster", data = Config["BCSORosterLink"]})
             SendNUIMessage({type = "UpdateEMSRoster", data = Config["EMSRosterLink"]})
             SendNUIMessage({type = "warrants", data = RPC.execute("qb-mdt:getWarrants")})
         end
@@ -765,3 +767,7 @@ function PublicRecordsThread()
         end
     end)
 end
+
+RegisterNetEvent('qb-mdt:client:PublicRecords' , function()
+    OpenPublicRecords()
+end)

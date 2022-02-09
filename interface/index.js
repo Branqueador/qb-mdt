@@ -20,6 +20,8 @@ let canSaveVehicle = true
 var LastName = ""
 var DispatchNum = 0
 let PoliceRoster = ""
+let SASTRoster = ""
+let BCSORoster = ""
 let EMSRoster = ""
 var isPublicRecords = false
 
@@ -2729,7 +2731,7 @@ $(document).ready(() => {
                 document.documentElement.style.setProperty('--color-7', 'rgb(28, 54, 82)');
                 document.documentElement.style.setProperty('--color-8', '#2554cc');
                 $(".badge-logo").attr('src','https://cdn.discordapp.com/attachments/770324167894761522/912602343483260958/sasp_badge.png');
-                $(".header-title").html("SAN ANDREAS STATE POLICE");
+                $(".header-title").html("LOS SANTOS POLICE DEPARTMENT");
                 $(".bolo-nav-item").html('<i class="fas fa-car"></i> BOLOS');
                 $(".bolos-search-title").html("Bolos");                
                 $("#bolos-search-input").attr('placeholder','Search Bolo...');
@@ -2760,6 +2762,108 @@ $(document).ready(() => {
                 $(".manage-profile-name-input-2").attr("readonly", true)
                 $("#reports-officeun-involved-tag-title").html("Officers Involved")
                 $(".roster-iframe").attr("src", PoliceRoster)    
+                $(".incidents-nav-item").html('<i class="fas fa-stethoscope"></i> INCIDENTS');
+                $(".incidents-title").html("Incidents");
+                $("#incidents-search-input").attr('placeholder', 'Search Incident...');
+                $(".manage-incidents-reports-content").attr('placeholder', 'Incident report content goes here...');
+                $(".manage-incidents-title").html("Manage Incident");
+                $(".manage-incidents-editing-title").html("You are currently creating a new Incident");
+                $(".manage-incidents-officeun-title").html("Officers Involved");
+                $(".manage-incidents-evidence-title").html("Evidence");
+                $(".associated-incidents-tags-title").html("Criminals Involved");
+                $(".convictions-title").html("Known Convictions");   
+            } else if (sentJob == 'sast') {
+                document.documentElement.style.setProperty('--color-1', '#1E3955');
+                document.documentElement.style.setProperty('--color-2', '#213F5F');
+                document.documentElement.style.setProperty('--color-3', '#2C537B');
+                document.documentElement.style.setProperty('--color-4', '#23405E');
+                document.documentElement.style.setProperty('--color-5', '#152638');
+                document.documentElement.style.setProperty('--color-6', '#121f2c');
+                document.documentElement.style.setProperty('--color-7', 'rgb(28, 54, 82)');
+                document.documentElement.style.setProperty('--color-8', '#2554cc');
+                $(".badge-logo").attr('src','https://cdn.discordapp.com/attachments/770324167894761522/912602343483260958/sasp_badge.png');
+                $(".header-title").html("SAN ANDREAS STATE POLICE");
+                $(".bolo-nav-item").html('<i class="fas fa-car"></i> BOLOS');
+                $(".bolos-search-title").html("Bolos");                
+                $("#bolos-search-input").attr('placeholder','Search Bolo...');
+                $(".manage-bolos-title").html("Manage Bolo");
+                $(".manage-bolos-editing-title").html("You are currently creating a new BOLO");
+                $(".boloplate-title").html("Plate");
+                $(".boloowner-title").html("Owner");
+                $(".boloindividual-title").html("Individual");
+                $("#boloplate").attr('placeholder','Place plate here...');
+                $("#bolodetail").attr('placeholder','Bolo detail goes here...');
+                $(".convictions-title").html("Known Convictions");   
+                $("#boloowner").attr('placeholder','Place vehicle owner here...');
+                $("#boloindividual").attr('placeholder','Place invidivual here...');
+                $("#home-warrants-container").fadeIn(0)
+                $("#home-reports-container").fadeOut(0)
+                $(".quote-span").html("Our lives on the line, just for the media to whine");
+                $(".incidents-nav-item").show()
+                $(".bolo-nav-item").show()
+                $(".penalcode-nav-item").show()
+                $(".dmv-nav-item").show()
+                $(".weapons-nav-item").show()
+                $(".missing-nav-item").show()
+                $(".reports-nav-item").show()
+                $(".dashboard-nav-item").show()
+                $(".dispatch-title-ofsomesort").html("Dispatch")
+                $(".dispatch-comms-container").fadeIn(0)
+                $(".manage-profile-name-input-1").attr("readonly", true)
+                $(".manage-profile-name-input-2").attr("readonly", true)
+                $("#reports-officeun-involved-tag-title").html("Officers Involved")
+                $(".roster-iframe").attr("src", SASTRoster)    
+                $(".incidents-nav-item").html('<i class="fas fa-stethoscope"></i> INCIDENTS');
+                $(".incidents-title").html("Incidents");
+                $("#incidents-search-input").attr('placeholder', 'Search Incident...');
+                $(".manage-incidents-reports-content").attr('placeholder', 'Incident report content goes here...');
+                $(".manage-incidents-title").html("Manage Incident");
+                $(".manage-incidents-editing-title").html("You are currently creating a new Incident");
+                $(".manage-incidents-officeun-title").html("Officers Involved");
+                $(".manage-incidents-evidence-title").html("Evidence");
+                $(".associated-incidents-tags-title").html("Criminals Involved");
+                $(".convictions-title").html("Known Convictions");   
+            } else if (sentJob == 'bcso') {
+                document.documentElement.style.setProperty('--color-1', '#1E3955');
+                document.documentElement.style.setProperty('--color-2', '#213F5F');
+                document.documentElement.style.setProperty('--color-3', '#2C537B');
+                document.documentElement.style.setProperty('--color-4', '#23405E');
+                document.documentElement.style.setProperty('--color-5', '#152638');
+                document.documentElement.style.setProperty('--color-6', '#121f2c');
+                document.documentElement.style.setProperty('--color-7', 'rgb(28, 54, 82)');
+                document.documentElement.style.setProperty('--color-8', '#2554cc');
+                $(".badge-logo").attr('src','https://cdn.discordapp.com/attachments/770324167894761522/912602343483260958/sasp_badge.png');
+                $(".header-title").html("BLAINE COUNTY SHERIFFS OFFICE");
+                $(".bolo-nav-item").html('<i class="fas fa-car"></i> BOLOS');
+                $(".bolos-search-title").html("Bolos");                
+                $("#bolos-search-input").attr('placeholder','Search Bolo...');
+                $(".manage-bolos-title").html("Manage Bolo");
+                $(".manage-bolos-editing-title").html("You are currently creating a new BOLO");
+                $(".boloplate-title").html("Plate");
+                $(".boloowner-title").html("Owner");
+                $(".boloindividual-title").html("Individual");
+                $("#boloplate").attr('placeholder','Place plate here...');
+                $("#bolodetail").attr('placeholder','Bolo detail goes here...');
+                $(".convictions-title").html("Known Convictions");   
+                $("#boloowner").attr('placeholder','Place vehicle owner here...');
+                $("#boloindividual").attr('placeholder','Place invidivual here...');
+                $("#home-warrants-container").fadeIn(0)
+                $("#home-reports-container").fadeOut(0)
+                $(".quote-span").html("Our lives on the line, just for the media to whine");
+                $(".incidents-nav-item").show()
+                $(".bolo-nav-item").show()
+                $(".penalcode-nav-item").show()
+                $(".dmv-nav-item").show()
+                $(".weapons-nav-item").show()
+                $(".missing-nav-item").show()
+                $(".reports-nav-item").show()
+                $(".dashboard-nav-item").show()
+                $(".dispatch-title-ofsomesort").html("Dispatch")
+                $(".dispatch-comms-container").fadeIn(0)
+                $(".manage-profile-name-input-1").attr("readonly", true)
+                $(".manage-profile-name-input-2").attr("readonly", true)
+                $("#reports-officeun-involved-tag-title").html("Officers Involved")
+                $(".roster-iframe").attr("src", BCSORoster)    
                 $(".incidents-nav-item").html('<i class="fas fa-stethoscope"></i> INCIDENTS');
                 $(".incidents-title").html("Incidents");
                 $("#incidents-search-input").attr('placeholder', 'Search Incident...');
@@ -2918,6 +3022,7 @@ $(document).ready(() => {
 
             $(".manage-profile-editing-title").html("You are currently editing " + table["firstname"] + " " + table["lastname"])
             $(".manage-profile-citizenid-input").val(table["cid"]);
+            $(".manage-profile-fingerprint-input").val(table["fingerprint"]);
             $(".manage-profile-name-input-1").val(table["firstname"])
             $(".manage-profile-name-input-2").val(table["lastname"])
             $(".manage-profile-dob-input").val(table["dateofbirth"]);
@@ -4015,6 +4120,7 @@ $(document).ready(() => {
             var PaCount = 0
 
             const lspd = e.lspd
+            const sast = e.sast
             const ems = e.ems
 
             $(".active-unit-list").empty();
@@ -4023,7 +4129,7 @@ $(document).ready(() => {
                 var status = "10-8"
                 var statuscolor = "green-status"
                 var radio = "0"
-                var callsign = "000"
+                var callsign = "P-00"
                 if (value.duty == 0) { 
                     status = "10-7"
                     statuscolor = "yellow-status"
@@ -4036,6 +4142,52 @@ $(document).ready(() => {
                 <div class="active-unit-item" data-id="${value.cid}">
                     <div class="unit-status ${statuscolor}">${status}</div>
                     <div class="unit-job active-info-job-lspd">LSPD</div>
+                    <div class="unit-name">(${callsign}) ${value.name}</div>
+                    <div class="unit-radio">${radio}</div>
+                </div>
+                `)
+            })
+
+            $.each(sast, function (index, value) {
+                var status = "10-8"
+                var statuscolor = "green-status"
+                var radio = "0"
+                var callsign = "T-00"
+                if (value.duty == 0) { 
+                    status = "10-7"
+                    statuscolor = "yellow-status"
+                } else if (value.duty == 1) {
+                    PoliceCount = PoliceCount + 1
+                }
+                if (value.radio) { radio = value.radio }
+                if (value.callsign) { callsign = value.callsign }
+                $('.active-unit-list').prepend(`
+                <div class="active-unit-item" data-id="${value.cid}">
+                    <div class="unit-status ${statuscolor}">${status}</div>
+                    <div class="unit-job active-info-job-lspd">SAST</div>
+                    <div class="unit-name">(${callsign}) ${value.name}</div>
+                    <div class="unit-radio">${radio}</div>
+                </div>
+                `)
+            })
+
+            $.each(bcso, function (index, value) {
+                var status = "10-8"
+                var statuscolor = "green-status"
+                var radio = "0"
+                var callsign = "B-00"
+                if (value.duty == 0) { 
+                    status = "10-7"
+                    statuscolor = "yellow-status"
+                } else if (value.duty == 1) {
+                    PoliceCount = PoliceCount + 1
+                }
+                if (value.radio) { radio = value.radio }
+                if (value.callsign) { callsign = value.callsign }
+                $('.active-unit-list').prepend(`
+                <div class="active-unit-item" data-id="${value.cid}">
+                    <div class="unit-status ${statuscolor}">${status}</div>
+                    <div class="unit-job active-info-job-lspd">BCSO</div>
                     <div class="unit-name">(${callsign}) ${value.name}</div>
                     <div class="unit-radio">${radio}</div>
                 </div>
@@ -4070,6 +4222,10 @@ $(document).ready(() => {
 
         } else if (e.type == "UpdatePoliceRoster") {
             PoliceRoster = e.data
+        } else if (e.type == "UpdateSASTRoster") {
+            SASTRoster = e.data
+        } else if (e.type == "UpdateBCSORoster") {
+            SASTRoster = e.data
         } else if (e.type == "UpdateEMSRoster") {
             EMSRoster = e.data
         }
