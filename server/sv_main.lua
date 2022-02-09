@@ -97,9 +97,9 @@ LoadQBCoreVersion = function()
         if result[1].pp == nil or result[1].pp == "" then
             local charInfo = json.decode(result[1].charinfo)
             if charInfo.gender == "Male" or charInfo.gender == "M" or charInfo.gender == "0" or charInfo.gender == 0 or charInfo.gender == "m" or charInfo.gender == "man" then
-                return "https://cdn.discordapp.com/attachments/769245887654002782/890279531959693312/male.png"
+                return "https://media.discordapp.net/attachments/940800022965014569/940992329655934986/male.png"
             elseif charInfo.gender == "Female" or charInfo.gender == "F" or charInfo.gender == "1" or charInfo.gender == 1 or charInfo.gender == "f" or charInfo.gender == "female" then
-                return "https://cdn.discordapp.com/attachments/769245887654002782/890279637953953822/female.png"
+                return "https://media.discordapp.net/attachments/940800022965014569/940992329869819984/female.png"
             end
         else
             return result[1].pp
@@ -110,7 +110,7 @@ LoadQBCoreVersion = function()
         if result[1] and result[1].image and result[1].image ~= "" then
             return result[1].image
         else
-            return "https://cdn.discordapp.com/attachments/769245887654002782/890579805798531082/not-found.jpg"
+            return "https://media.discordapp.net/attachments/940800022965014569/940992246143123556/not-found.jpg"
         end
     end
     GetVehicleInformation = function(plate)
