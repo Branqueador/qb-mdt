@@ -3,7 +3,9 @@ Config = {}
 Config["MDTCommand"] = "mdt"
 
 Config["PoliceJobs"] = {
-    "police"
+    "police",
+    "sast",
+    "bcso"
 }
 
 Config["EMSJobs"] = {
@@ -11,6 +13,8 @@ Config["EMSJobs"] = {
 }
 
 Config["PoliceRosterLink"] = ""
+Config["SASTRosterLink"] = ""
+Config["BCSOPoliceRosterLink"] = ""
 
 Config["EMSRosterLink"] = ""
 

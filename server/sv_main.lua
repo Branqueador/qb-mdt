@@ -3,6 +3,15 @@ local MDTDispatchData = {}
 local AttachedUnits = {}
 local calls = 0
 
+function isAuth(job)
+    for i = 1, #Config["PoliceJobs"] do
+        if job == Config["PoliceJobs"][i] then
+            return true
+        end
+    end
+    return false
+end
+
 SQL = function(query, parameters, cb)
     local res = nil
     local IsBusy = true
@@ -232,6 +241,38 @@ LoadQBCoreVersion = function()
             end
         end
         return ActiveLSPD
+    end)
+    RPC.register("qb-mdt:getActiveSAST", function()
+        local ActiveSAST = {}
+        for index, player in pairs(QBCore.Functions.GetPlayers()) do
+            local xPlayer = QBCore.Functions.GetPlayer(player)
+            if xPlayer.PlayerData.job.name == "sast" then
+                table.insert(ActiveSAST, {
+                    duty = GetPlayerDutyStatus(xPlayer.PlayerData.source),
+                    cid = xPlayer.PlayerData.citizenid,
+                    name = xPlayer.PlayerData.charinfo.firstname..' '..xPlayer.PlayerData.charinfo.lastname,
+                    callsign = GetResourceKvpString("qb-mdt:callsign-"..xPlayer.PlayerData.citizenid),
+                    radio = GetPlayerRadio(xPlayer.PlayerData.source)
+                })
+            end
+        end
+        return ActiveSAST
+    end)
+    RPC.register("qb-mdt:getActiveBCSO", function()
+        local ActiveBCSO = {}
+        for index, player in pairs(QBCore.Functions.GetPlayers()) do
+            local xPlayer = QBCore.Functions.GetPlayer(player)
+            if xPlayer.PlayerData.job.name == "bcso" then
+                table.insert(ActiveBCSO, {
+                    duty = GetPlayerDutyStatus(xPlayer.PlayerData.source),
+                    cid = xPlayer.PlayerData.citizenid,
+                    name = xPlayer.PlayerData.charinfo.firstname..' '..xPlayer.PlayerData.charinfo.lastname,
+                    callsign = GetResourceKvpString("qb-mdt:callsign-"..xPlayer.PlayerData.citizenid),
+                    radio = GetPlayerRadio(xPlayer.PlayerData.source)
+                })
+            end
+        end
+        return ActiveBCSO
     end)
     RPC.register("qb-mdt:getActiveEMS", function()
         local ActiveEMS = {}
