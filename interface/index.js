@@ -3314,6 +3314,10 @@ $(document).ready(() => {
                     DispatchItem += `<div class="call-bottom-info"><span class="fas fa-map-pin"></span>${value.firstStreet}</div>`
                 }
 
+                if (value["camId"]) {
+                    DispatchItem += `<div class="call-bottom-info"><span class="fas fa-camera"></span>${value.camId}</div>`
+                }
+
                 if (value['heading']) {
                     DispatchItem += `<div class="call-bottom-info"><span class="fas fa-share"></span>${value.heading}</div>`
                 }
