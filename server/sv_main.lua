@@ -3,9 +3,18 @@ local MDTDispatchData = {}
 local AttachedUnits = {}
 local calls = 0
 
-function isAuth(job)
+local function IsPolice(job)
     for i = 1, #Config["PoliceJobs"] do
         if job == Config["PoliceJobs"][i] then
+            return true
+        end
+    end
+    return false
+end
+
+local function IsEMS(job)
+    for i = 1, #Config["EMSJobs"] do
+        if job == Config["EMSJobs"][i] then
             return true
         end
     end
@@ -189,16 +198,12 @@ LoadQBCoreVersion = function()
     end)
     RegisterCommand(Config["MDTCommand"], function(source)
         local xPlayer = QBCore.Functions.GetPlayer(source)
-        for index, job in pairs(Config["PoliceJobs"]) do
-            for index2, job2 in pairs(Config["EMSJobs"]) do
-                if xPlayer.PlayerData.job.name == job or xPlayer.PlayerData.job.name == job2 then
-                    local job = xPlayer.PlayerData.job.name
-                    local jobLabel = xPlayer.PlayerData.charinfo.firstname
-                    local lastname = xPlayer.PlayerData.charinfo.lastname
-                    local firstname = xPlayer.PlayerData.charinfo.firstname
-                    TriggerClientEvent("qb-mdt:open", source, job, jobLabel, lastname, firstname)
-                end
-            end
+        if IsPolice(xPlayer.PlayerData.job.name) or IsEMS(xPlayer.PlayerData.job.name) then
+            local job = xPlayer.PlayerData.job.name
+            local jobLabel = xPlayer.PlayerData.charinfo.firstname
+            local lastname = xPlayer.PlayerData.charinfo.lastname
+            local firstname = xPlayer.PlayerData.charinfo.firstname
+            TriggerClientEvent("qb-mdt:open", source, job, jobLabel, lastname, firstname)
         end
     end)
     RPC.register("qb-mdt:dashboardbulletin", function()
