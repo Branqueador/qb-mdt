@@ -725,6 +725,10 @@ LoadQBCoreVersion = function()
     end)
 end
 
+RegisterNetEvent('qb-mdt:client:PublicRecords' , function()
+      OpenPublicRecords()
+end)
+
 Citizen.CreateThread(function()
     if Config["CoreSettings"]["QBCore"]["QBCoreVersion"] == "new" then
         QBCore = Config["CoreSettings"]["QBCore"]["QBCoreExport"]
